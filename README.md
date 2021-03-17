@@ -13,6 +13,8 @@ Abstract: *The style-based GAN architecture (StyleGAN) yields state-of-the-art r
 For business inquiries, please contact [researchinquiries@nvidia.com](mailto:researchinquiries@nvidia.com)<br>
 For press and other inquiries, please contact Hector Marinez at [hmarinez@nvidia.com](mailto:hmarinez@nvidia.com)<br>
 
+**&#9733;&#9733;&#9733; NEW: [StyleGAN2-ADA-PyTorch](https://github.com/NVlabs/stylegan2-ada-pytorch) is now available; see the full list of versions [here](https://nvlabs.github.io/stylegan2/versions.html) &#9733;&#9733;&#9733;**
+
 | Additional material | &nbsp;
 | :--- | :----------
 | [StyleGAN2](https://drive.google.com/open?id=1QHc-yF5C3DChRwSdZKcx1w6K8JvSxQi7) | Main Google Drive folder
@@ -22,20 +24,20 @@ For press and other inquiries, please contact Hector Marinez at [hmarinez@nvidia
 | &boxv;&nbsp; &boxvr;&nbsp;  [curated-images](https://drive.google.com/open?id=1ydWb8xCHzDKMTW9kQ7sL-B1R0zATHVHp) | Hand-picked images showcasing our results
 | &boxv;&nbsp; &boxur;&nbsp;  [100k-generated-images](https://drive.google.com/open?id=1BA2OZ1GshdfFZGYZPob5QWOGBuJCdu5q) | Random images with and without truncation
 | &boxvr;&nbsp; [videos](https://drive.google.com/open?id=1yXDV96SFXoUiZKU7AyE6DyKgDpIk4wUZ) | Individual clips of the video as high-quality MP4
-| &boxur;&nbsp; [networks](https://drive.google.com/open?id=1yanUI9m4b4PWzR0eurKNq6JR1Bbfbh6L) | Pre-trained networks
-| &ensp;&ensp; &boxvr;&nbsp;  [stylegan2-ffhq-config-f.pkl](http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-ffhq-config-f.pkl) | StyleGAN2 for <span style="font-variant:small-caps">FFHQ</span> dataset at 1024&times;1024
-| &ensp;&ensp; &boxvr;&nbsp;  [stylegan2-car-config-f.pkl](http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-car-config-f.pkl) | StyleGAN2 for <span style="font-variant:small-caps">LSUN Car</span> dataset at 512&times;384
-| &ensp;&ensp; &boxvr;&nbsp;  [stylegan2-cat-config-f.pkl](http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-cat-config-f.pkl) | StyleGAN2 for <span style="font-variant:small-caps">LSUN Cat</span> dataset at 256&times;256
-| &ensp;&ensp; &boxvr;&nbsp;  [stylegan2-church-config-f.pkl](http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-church-config-f.pkl) | StyleGAN2 for <span style="font-variant:small-caps">LSUN Church</span> dataset at 256&times;256
-| &ensp;&ensp; &boxvr;&nbsp;  [stylegan2-horse-config-f.pkl](http://d36zk2xti64re0.cloudfront.net/stylegan2/networks/stylegan2-horse-config-f.pkl) | StyleGAN2 for <span style="font-variant:small-caps">LSUN Horse</span> dataset at 256&times;256
+| &boxur;&nbsp; [networks](https://nvlabs-fi-cdn.nvidia.com/stylegan2/networks/) | Pre-trained networks
+| &ensp;&ensp; &boxvr;&nbsp;  stylegan2-ffhq-config-f.pkl | StyleGAN2 for <span style="font-variant:small-caps">FFHQ</span> dataset at 1024&times;1024
+| &ensp;&ensp; &boxvr;&nbsp;  stylegan2-car-config-f.pkl | StyleGAN2 for <span style="font-variant:small-caps">LSUN Car</span> dataset at 512&times;384
+| &ensp;&ensp; &boxvr;&nbsp;  stylegan2-cat-config-f.pkl | StyleGAN2 for <span style="font-variant:small-caps">LSUN Cat</span> dataset at 256&times;256
+| &ensp;&ensp; &boxvr;&nbsp;  stylegan2-church-config-f.pkl | StyleGAN2 for <span style="font-variant:small-caps">LSUN Church</span> dataset at 256&times;256
+| &ensp;&ensp; &boxvr;&nbsp;  stylegan2-horse-config-f.pkl | StyleGAN2 for <span style="font-variant:small-caps">LSUN Horse</span> dataset at 256&times;256
 | &ensp;&ensp; &boxur;&nbsp;&#x22ef;  | Other training configurations used in the paper
 
 ## Requirements
 
 * Both Linux and Windows are supported. Linux is recommended for performance and compatibility reasons.
 * 64-bit Python 3.6 installation. We recommend Anaconda3 with numpy 1.14.3 or newer.
-* TensorFlow 1.14 or 1.15 with GPU support. The code does not support TensorFlow 2.0.
-* On Windows, you need to use TensorFlow 1.14 &mdash; TensorFlow 1.15 will not work.
+* We recommend TensorFlow 1.14, which we used for all experiments in the paper, but TensorFlow 1.15 is also supported on Linux. TensorFlow 2.x is not supported.
+* On Windows you need to use TensorFlow 1.14, as the standard 1.15 installation does not include necessary C++ headers.
 * One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5. To reproduce the results reported in the paper, you need an NVIDIA GPU with at least 16 GB of DRAM.
 * Docker users: use the [provided Dockerfile](./Dockerfile) to build an image with the required library dependencies.
 
@@ -206,12 +208,11 @@ This work is made available under the Nvidia Source Code License-NC. To view a c
 ## Citation
 
 ```
-@article{Karras2019stylegan2,
-  title   = {Analyzing and Improving the Image Quality of {StyleGAN}},
-  author  = {Tero Karras and Samuli Laine and Miika Aittala and Janne Hellsten and Jaakko Lehtinen and Timo Aila},
-  journal = {CoRR},
-  volume  = {abs/1912.04958},
-  year    = {2019},
+@inproceedings{Karras2019stylegan2,
+  title     = {Analyzing and Improving the Image Quality of {StyleGAN}},
+  author    = {Tero Karras and Samuli Laine and Miika Aittala and Janne Hellsten and Jaakko Lehtinen and Timo Aila},
+  booktitle = {Proc. CVPR},
+  year      = {2020}
 }
 ```
 
